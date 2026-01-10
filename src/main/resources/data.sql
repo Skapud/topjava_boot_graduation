@@ -7,18 +7,12 @@ DELETE FROM restaurant;
 INSERT INTO users (name, email, password)
 VALUES ('User', 'user@yandex.ru', 'password'),
        ('Admin', 'admin@gmail.com', 'admin'),
-       ('User2', 'user2@gmail.com', 'password2'),
-       ('User3', 'user3@gmail.com', 'password3'),
-       ('User4', 'user4@gmail.com', 'password4'),
-       ('User5', 'user5@gmail.com', 'password5');
+       ('Guest', 'guest@gmail.com', 'guest');
 
 INSERT INTO user_role (role, user_id)
 VALUES ('USER', 100),
        ('ADMIN', 101),
-       ('USER', 102),
-       ('USER', 103),
-       ('USER', 104),
-       ('USER', 105);
+       ('USER', 101);
 
 INSERT INTO RESTAURANT (name)
 VALUES ('Ukrainochka'),
