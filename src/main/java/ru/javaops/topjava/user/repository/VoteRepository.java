@@ -10,9 +10,13 @@ import java.util.List;
 import java.util.Optional;
 
 public interface VoteRepository extends BaseRepository<Vote> {
-    @Query("SELECT v FROM Vote v JOIN FETCH v.restaurant " +
+    @Query("SELECT v FROM Vote v " +
             "WHERE v.voteDate=:voteDate AND v.user.id=:userId")
     Optional<Vote> getByDate(@Param("userId") int userId, @Param("voteDate") LocalDate date);
+
+    @Query("SELECT v FROM Vote v JOIN FETCH v.restaurant " +
+            "WHERE v.voteDate=:voteDate AND v.user.id=:userId")
+    Optional<Vote> getByDateWithRestaurant(@Param("userId") int userId, @Param("voteDate") LocalDate date);
 
     @Query("SELECT v FROM Vote v JOIN FETCH v.restaurant " +
             "WHERE v.user.id=:userId ORDER BY v.voteDate DESC")

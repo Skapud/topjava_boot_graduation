@@ -37,7 +37,7 @@ public class ProfileVoteController {
     public ResponseEntity<VoteTo> get(@AuthenticationPrincipal AuthUser authUser) {
         log.info("get for user {}", authUser.id());
         return ResponseEntity.of(
-                repository.getByDate(authUser.id(), LocalDate.now())
+                repository.getByDateWithRestaurant(authUser.id(), LocalDate.now())
                         .map(VotesUtil::createTo)
         );
     }

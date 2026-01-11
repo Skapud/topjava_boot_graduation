@@ -32,11 +32,11 @@ public class VoteService {
         Restaurant restaurant = restaurantRepository.getReferenceById(restaurantId);
         User user = userRepository.getReferenceById(userId);
 
-        Optional<Vote> voteOptional = voteRepository.getByDate(userId, voteDate);
-        if (voteOptional.isEmpty()) {
+        Optional<Vote> voteToday = voteRepository.getByDate(userId, voteDate);
+        if (voteToday.isEmpty()) {
             return voteRepository.save(new Vote(null, voteDate, voteTime, restaurant, user));
         }
-        return voteOptional
+        return voteToday
                 .filter(vote -> voteTime.isBefore(DEADLINE))
                 .map(vote -> {
                     vote.setRestaurant(restaurant);

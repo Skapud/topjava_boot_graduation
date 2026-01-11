@@ -20,8 +20,6 @@ import java.util.List;
 
 import static ru.javaops.topjava.common.validation.ValidationUtil.assureIdConsistent;
 import static ru.javaops.topjava.common.validation.ValidationUtil.checkIsNew;
-import static ru.javaops.topjava.user.util.DateTimeUtil.atStartOfDayOrMin;
-import static ru.javaops.topjava.user.util.DateTimeUtil.atStartOfNextDayOrMax;
 
 @RestController
 @RequestMapping(value = ru.javaops.topjava.user.web.AdminDishController.REST_URL, produces = MediaType.APPLICATION_JSON_VALUE)

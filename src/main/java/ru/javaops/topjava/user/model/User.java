@@ -60,7 +60,7 @@ public class User extends NamedEntity implements HasIdAndEmail {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
     @OnDelete(action = OnDeleteAction.CASCADE)
-    @JsonManagedReference
+    @JsonManagedReference(value = "user-votes")
     private List<Vote> votes;
 
     public User(User u) {
