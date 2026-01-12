@@ -15,7 +15,7 @@ public class DishService {
     private final RestaurantRepository restaurantRepository;
 
     @Transactional
-    @CacheEvict(value = "restaurants", allEntries = true)
+    @CacheEvict(value = {"menuToday"}, allEntries = true)
     public Dish createOrUpdate(int restaurantId, Dish dish) {
         dish.setRestaurant(restaurantRepository.getExisted(restaurantId));
         return dishRepository.save(dish);

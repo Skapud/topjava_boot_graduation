@@ -1,6 +1,7 @@
 package ru.javaops.topjava.user.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
@@ -37,7 +38,8 @@ public class Vote extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "user_id")
     @OnDelete(action = OnDeleteAction.CASCADE)
-    @JsonBackReference(value = "user-votes")
+//    @JsonBackReference(value = "user-votes")
+    @JsonIgnoreProperties({"votes", "password", "registered"})
     private User user;
 
     public Vote() {

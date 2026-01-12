@@ -38,6 +38,12 @@ public class AdminDishController {
         return repository.getAll(restaurantId);
     }
 
+    @GetMapping("/{id}")
+    public Dish get(@PathVariable int restaurantId, @PathVariable int id) {
+        log.info("get {} from {}", id, restaurantId);
+        return repository.getBelonged(restaurantId, id);
+    }
+
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable int restaurantId, @PathVariable int id) {

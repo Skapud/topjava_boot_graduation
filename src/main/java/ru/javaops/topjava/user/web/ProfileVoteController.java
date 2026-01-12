@@ -43,7 +43,7 @@ public class ProfileVoteController {
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Vote vote(@AuthenticationPrincipal AuthUser authUser, @RequestBody int restaurantId) {
+    public Vote save(@AuthenticationPrincipal AuthUser authUser, @RequestParam int restaurantId) {
         int userId = authUser.id();
         log.info("user {} vote for {}", userId, restaurantId);
         return service.save(userId, restaurantId, LocalDateTime.now());

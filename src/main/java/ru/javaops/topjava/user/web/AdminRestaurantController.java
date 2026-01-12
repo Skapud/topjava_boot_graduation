@@ -35,6 +35,12 @@ public class AdminRestaurantController {
         return repository.findAll();
     }
 
+    @GetMapping("/{id}")
+    public Restaurant get(@PathVariable int id) {
+        log.info("get {}", id);
+        return repository.getExisted(id);
+    }
+
     @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void update(@Valid @RequestBody Restaurant restaurant, @PathVariable int id) {

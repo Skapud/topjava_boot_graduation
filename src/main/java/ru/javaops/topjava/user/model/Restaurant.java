@@ -20,7 +20,7 @@ public class Restaurant extends NamedEntity {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "restaurant")
     @OnDelete(action = OnDeleteAction.CASCADE)
-    @OrderBy("dishDate DESC")
+    @OrderBy("name ASC")
     @JsonManagedReference(value = "restaurant-dishes")
     private List<Dish> dishes;
 
@@ -35,6 +35,11 @@ public class Restaurant extends NamedEntity {
 
     public Restaurant(Integer id, String name) {
         super(id, name);
+    }
+
+    public Restaurant(Integer id, String name, boolean enabled) {
+        super(id, name);
+        this.enabled = enabled;
     }
 
     public Restaurant(Integer id, String name, List<Dish> dishes, List<Vote> votes) {

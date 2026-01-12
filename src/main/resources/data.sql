@@ -57,9 +57,9 @@ VALUES ('Varenyky with Cherry', '950', DATEADD('day', -1, CURRENT_DATE), 10),
        ('Lahmacun 3 pcs', '3600', CURRENT_DATE, 14);
 
 INSERT INTO VOTE (user_id, restaurant_id, vote_date, vote_time)
-VALUES(100,14,DATEADD('day', -1, CURRENT_DATE), '10:00:00'),
-    (100,11, CURRENT_DATE, '11:00:00'),
-    (100,10,DATEADD('day', 1, CURRENT_DATE), '15:30:00'),
-    (101,13,DATEADD('day', -1, CURRENT_DATE),'12:15:00'),
-    (101,12,CURRENT_DATE,'09:05:00'),
-    (101,13,DATEADD('day', 1, CURRENT_DATE),'14:25:00');
+VALUES(100,10,DATEADD('day', -2, CURRENT_DATE), '14:35:00'),
+(100,11,DATEADD('day', -1, CURRENT_DATE), '10:20:00'),
+    (100,13, CURRENT_DATE, '09:15:00'),
+    (101,10,DATEADD('day', -2, CURRENT_DATE), '15:30:00'),
+    (101,10,DATEADD('day', -1, CURRENT_DATE),'12:15:00');
+

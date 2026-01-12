@@ -1,6 +1,6 @@
 package ru.javaops.topjava.user.model;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
@@ -60,7 +60,8 @@ public class User extends NamedEntity implements HasIdAndEmail {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
     @OnDelete(action = OnDeleteAction.CASCADE)
-    @JsonManagedReference(value = "user-votes")
+//    @JsonManagedReference(value = "user-votes")
+    @JsonIgnore
     private List<Vote> votes;
 
     public User(User u) {

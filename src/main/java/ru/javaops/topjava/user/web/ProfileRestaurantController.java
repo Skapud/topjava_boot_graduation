@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ru.javaops.topjava.app.AuthUser;
-import ru.javaops.topjava.user.repository.RestaurantRepository;
+import ru.javaops.topjava.user.service.RestaurantService;
 import ru.javaops.topjava.user.to.RestaurantTo;
 import ru.javaops.topjava.user.util.RestaurantUtil;
 
@@ -22,11 +22,11 @@ import java.util.List;
 public class ProfileRestaurantController {
     static final String REST_URL = "/api/profile/restaurants";
 
-    private final RestaurantRepository repository;
+    private final RestaurantService service;
 
     @GetMapping
     public List<RestaurantTo> getAllWithDishesForToday(@AuthenticationPrincipal AuthUser authUser) {
         log.info("getAll for user {}", authUser.id());
-        return RestaurantUtil.getTos(repository.getAllWithDishesForToday(LocalDate.now()));
+        return RestaurantUtil.getTos(service.getAllWithDishesForToday(LocalDate.now()));
     }
 }
