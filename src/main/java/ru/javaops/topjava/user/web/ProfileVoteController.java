@@ -2,12 +2,12 @@ package ru.javaops.topjava.user.web;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 import ru.javaops.topjava.app.AuthUser;
-import ru.javaops.topjava.user.model.Vote;
 import ru.javaops.topjava.user.repository.VoteRepository;
 import ru.javaops.topjava.user.service.VoteService;
 import ru.javaops.topjava.user.to.VoteTo;
@@ -42,10 +42,11 @@ public class ProfileVoteController {
         );
     }
 
-    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Vote save(@AuthenticationPrincipal AuthUser authUser, @RequestParam int restaurantId) {
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public VoteTo save(@AuthenticationPrincipal AuthUser authUser, @RequestParam int restaurantId) {
         int userId = authUser.id();
         log.info("user {} vote for {}", userId, restaurantId);
-        return service.save(userId, restaurantId, LocalDateTime.now());
+        return VotesUtil.createTo(service.save(userId, restaurantId, LocalDateTime.now()));
     }
 }

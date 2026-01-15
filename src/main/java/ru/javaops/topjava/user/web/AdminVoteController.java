@@ -3,15 +3,18 @@ package ru.javaops.topjava.user.web;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.jspecify.annotations.Nullable;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import ru.javaops.topjava.user.model.Vote;
+import org.springframework.web.bind.annotation.*;
 import ru.javaops.topjava.user.repository.VoteRepository;
+import ru.javaops.topjava.user.to.VoteAdminTo;
+import ru.javaops.topjava.user.util.DateTimeUtil;
 
+import java.time.LocalDate;
 import java.util.List;
+
+import static ru.javaops.topjava.user.util.VotesUtil.getAdminTos;
 
 @RestController
 @RequestMapping(value = ru.javaops.topjava.user.web.AdminVoteController.REST_URL, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -24,8 +27,16 @@ public class AdminVoteController {
     private final VoteRepository repository;
 
     @GetMapping()
-    public List<Vote> getWithUsers(@PathVariable int restaurantId) {
+    public List<VoteAdminTo> getWithUsers(@PathVariable int restaurantId) {
         log.info("get with users for {}", restaurantId);
-        return repository.getWithUsers(restaurantId);
+        return getAdminTos(repository.getWithUsers(restaurantId));
+    }
+
+    @GetMapping("/filter")
+    public List<VoteAdminTo> getWithUsersFiltered(@PathVariable int restaurantId,
+                                                  @RequestParam @Nullable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,
+                                                  @RequestParam @Nullable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate) {
+        log.info("getBetween dates({} - {}) for restaurant {}", startDate, endDate, restaurantId);
+        return getAdminTos(repository.getWithUsersBetween(restaurantId, DateTimeUtil.orMin(startDate), DateTimeUtil.orMax(endDate)));
     }
 }

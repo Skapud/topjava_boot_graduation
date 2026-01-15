@@ -61,7 +61,7 @@ public class ProfileVoteControllerTest extends AbstractControllerTest {
         ResultActions action = perform(MockMvcRequestBuilders.post(REST_URL)
                 .param("restaurantId", String.valueOf(RESTAURANT1_ID))
                 .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk());
+                .andExpect(status().isCreated());
 
         Vote created = VOTE_MATCHER.readFromJson(action);
         int newId = created.id();

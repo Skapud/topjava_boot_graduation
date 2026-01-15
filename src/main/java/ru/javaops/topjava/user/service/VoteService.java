@@ -29,7 +29,7 @@ public class VoteService {
     public Vote save(int userId, int restaurantId, LocalDateTime localDateTime) {
         LocalDate voteDate = localDateTime.toLocalDate();
         LocalTime voteTime = localDateTime.toLocalTime();
-        Restaurant restaurant = restaurantRepository.getReferenceById(restaurantId);
+        Restaurant restaurant = restaurantRepository.getExistedById(restaurantId);
         User user = userRepository.getReferenceById(userId);
 
         Optional<Vote> voteToday = voteRepository.getByDate(userId, voteDate);

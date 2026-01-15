@@ -25,4 +25,10 @@ public interface VoteRepository extends BaseRepository<Vote> {
     @Query("SELECT v FROM Vote v JOIN FETCH v.user " +
             "WHERE v.restaurant.id=:restaurantId ORDER BY v.voteDate DESC, v.voteTime DESC")
     List<Vote> getWithUsers(@Param ("restaurantId") int restaurantId);
+
+        @Query("SELECT v FROM Vote v JOIN FETCH v.user " +
+                "WHERE v.restaurant.id=:restaurantId AND v.voteDate " +
+                "BETWEEN :startDate AND :endDate " +
+                "ORDER BY v.voteDate DESC, v.voteTime DESC")
+    List<Vote> getWithUsersBetween(@Param ("restaurantId") int restaurantId, @Param("startDate") LocalDate startDate, @Param("endDate")LocalDate endDate);
 }

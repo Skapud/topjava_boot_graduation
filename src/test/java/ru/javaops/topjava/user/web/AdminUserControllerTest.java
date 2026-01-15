@@ -147,16 +147,6 @@ class AdminUserControllerTest extends AbstractControllerTest {
         assertFalse(repository.getExisted(USER_ID).isEnabled());
     }
 
-//    @Test
-//    @WithUserDetails(value = ADMIN_MAIL)
-//    void getWithMeals() throws Exception {
-//        perform(MockMvcRequestBuilders.get(REST_URL_SLASH + ADMIN_ID + "/with-meals"))
-//                .andExpect(status().isOk())
-//                .andDo(print())
-//                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
-//                .andExpect(USER_WITH_MEALS_MATCHER.contentJson(admin));
-//    }
-
     @Test
     @WithUserDetails(value = ADMIN_MAIL)
     void createInvalid() throws Exception {

@@ -2,6 +2,7 @@ package ru.javaops.topjava.user;
 
 import ru.javaops.topjava.MatcherFactory;
 import ru.javaops.topjava.user.model.Vote;
+import ru.javaops.topjava.user.to.VoteAdminTo;
 import ru.javaops.topjava.user.to.VoteTo;
 
 import java.time.LocalDate;
@@ -11,7 +12,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static ru.javaops.topjava.user.RestaurantTestData.*;
 import static ru.javaops.topjava.user.UserTestData.admin;
 import static ru.javaops.topjava.user.UserTestData.user;
@@ -19,14 +19,6 @@ import static ru.javaops.topjava.user.service.VoteService.DEADLINE;
 
 public class VoteTestData {
     public static final MatcherFactory.Matcher<Vote> VOTE_MATCHER = MatcherFactory.usingIgnoringFieldsComparator(Vote.class, "user", "voteTime", "restaurant");
-    public static MatcherFactory.Matcher<Vote> VOTES_WITH_USER_MATCHER =
-            MatcherFactory.usingAssertions(Vote.class,
-                    //     No need use ignoringAllOverriddenEquals, see https://assertj.github.io/doc/#breaking-changes
-                    (a, e) -> assertThat(a).usingRecursiveComparison()
-                            .ignoringFields("voteTime", "user.votes", "restaurant").isEqualTo(e),
-                    (a, e) -> assertThat(a).usingRecursiveComparison()
-                            .ignoringFields("voteTime", "user.votes", "restaurant", "user.registered", "user.password").isEqualTo(e)
-            );
 
     public static final int VOTE1_ID = 1000;
 
@@ -40,8 +32,8 @@ public class VoteTestData {
 
     public static final List<Vote> RESTAURANT1_VOTE_LIST = getFiltered(List.of(vote1,vote4,vote5));
 
-
     public static MatcherFactory.Matcher<VoteTo> VOTE_TO_MATCHER = MatcherFactory.usingEqualsComparator(VoteTo.class);
+    public static MatcherFactory.Matcher<VoteAdminTo> VOTE_ADMIN_TO_MATCHER = MatcherFactory.usingIgnoringFieldsComparator(VoteAdminTo.class);
 
     public static Vote getNew() {
         return new Vote(null, LocalDate.now(), LocalTime.of(15, 0), restaurant1, admin);
@@ -49,10 +41,6 @@ public class VoteTestData {
 
     public static Vote getUpdatedBeforeDeadline() {
         return new Vote(vote3.id(), LocalDate.now(), DEADLINE.minusMinutes(1), restaurant1, user);
-    }
-
-    public static Vote getUpdatedAfterDeadline() {
-        return new Vote(vote3.id(), LocalDate.now(), DEADLINE, restaurant1, user);
     }
 
     @SafeVarargs

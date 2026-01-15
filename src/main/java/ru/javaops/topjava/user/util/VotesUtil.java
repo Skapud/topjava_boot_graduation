@@ -2,6 +2,7 @@ package ru.javaops.topjava.user.util;
 
 import lombok.experimental.UtilityClass;
 import ru.javaops.topjava.user.model.Vote;
+import ru.javaops.topjava.user.to.VoteAdminTo;
 import ru.javaops.topjava.user.to.VoteTo;
 
 import java.util.Collection;
@@ -18,5 +19,15 @@ public class VotesUtil {
 
     public static VoteTo createTo(Vote vote) {
         return new VoteTo(vote.getId(), vote.getVoteDate(), vote.getVoteTime(), vote.getRestaurant().id(), vote.getRestaurant().getName());
+    }
+
+    public static List<VoteAdminTo> getAdminTos(Collection<Vote> votes) {
+        return votes.stream()
+                .map(VotesUtil::createAdminTo)
+                .collect(Collectors.toList());
+    }
+
+    public static VoteAdminTo createAdminTo(Vote vote) {
+        return new VoteAdminTo(vote.getId(), vote.getVoteDate(), vote.getVoteTime(), vote.getUser().getId(), vote.getUser().getName(), vote.getUser().getEmail());
     }
 }

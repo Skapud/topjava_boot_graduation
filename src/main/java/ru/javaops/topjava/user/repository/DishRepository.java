@@ -16,7 +16,7 @@ public interface DishRepository extends BaseRepository<Dish> {
     @Query("SELECT d FROM Dish d WHERE d.restaurant.id=:restaurantId ORDER BY d.dishDate DESC, d.name ASC")
     List<Dish> getAll(@Param("restaurantId") int restaurantId);
 
-    @Query("SELECT d FROM Dish d WHERE d.restaurant.id=:restaurantId AND d.dishDate=:dishDate ORDER BY d.dishDate DESC")
+    @Query("SELECT d FROM Dish d WHERE d.restaurant.id=:restaurantId AND d.dishDate=:dishDate ORDER BY d.dishDate DESC, d.name ASC")
     List<Dish> getFiltered(@Param("restaurantId") int restaurantId, @Param("dishDate") LocalDate dishDate);
 
     @Query("SELECT d FROM Dish d WHERE d.id = :id and d.restaurant.id = :restaurantId")

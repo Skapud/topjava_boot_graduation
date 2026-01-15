@@ -2,7 +2,6 @@ package ru.javaops.topjava.user.web;
 
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import ru.javaops.topjava.user.model.User;
@@ -33,9 +32,4 @@ public abstract class AbstractUserController {
         log.info("delete {}", id);
         repository.deleteExisted(id);
     }
-
-//    public ResponseEntity<User> getWithMeals(int id) {
-//        log.info("getWithMeals {}", id);
-//        return ResponseEntity.of(repository.getWithMeals(id));
-//    }
 }

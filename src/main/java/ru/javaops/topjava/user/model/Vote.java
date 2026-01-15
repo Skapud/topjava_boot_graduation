@@ -21,12 +21,10 @@ import java.time.LocalTime;
 public class Vote extends BaseEntity {
     @Column(name = "vote_date", nullable = false)
     @NotNull
-//    @DateTimeFormat(pattern = DateTimeUtil.DATE_TIME_PATTERN)
     private LocalDate voteDate;
 
     @Column(name = "vote_time", nullable = false)
     @NotNull
-//    @DateTimeFormat(pattern = DateTimeUtil.DATE_TIME_PATTERN)
     private LocalTime voteTime;
 
     @ManyToOne
@@ -38,7 +36,6 @@ public class Vote extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "user_id")
     @OnDelete(action = OnDeleteAction.CASCADE)
-//    @JsonBackReference(value = "user-votes")
     @JsonIgnoreProperties({"votes", "password", "registered"})
     private User user;
 

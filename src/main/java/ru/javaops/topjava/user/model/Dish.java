@@ -1,6 +1,7 @@
 package ru.javaops.topjava.user.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
@@ -25,13 +26,13 @@ public class Dish extends NamedEntity {
 
     @Column(name = "dish_date", nullable = false)
     @NotNull
-//    @DateTimeFormat(pattern = DateTimeUtil.DATE_TIME_PATTERN)
     private LocalDate dishDate;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "restaurant_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonBackReference(value = "restaurant-dishes")
+    @JsonIgnore
     private Restaurant restaurant;
 
     public Dish() {}

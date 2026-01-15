@@ -1,6 +1,8 @@
 package ru.javaops.topjava.user.model;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,12 +24,16 @@ public class Restaurant extends NamedEntity {
     @OnDelete(action = OnDeleteAction.CASCADE)
     @OrderBy("name ASC")
     @JsonManagedReference(value = "restaurant-dishes")
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private List<Dish> dishes;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "restaurant")
     @OnDelete(action = OnDeleteAction.CASCADE)
     @OrderBy("voteTime DESC")
     @JsonManagedReference(value = "restaurant-votes")
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private List<Vote> votes;
 
     public Restaurant() {
