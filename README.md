@@ -30,7 +30,7 @@ Each restaurant provides a new menu each day.
 
 [Original Task Definition](https://github.com/JavaOPs/topjava/blob/master/graduation.md)
 
-## Technologies
+## In use
 
 -------------------------------------------------------------
 
@@ -69,6 +69,16 @@ Each restaurant provides a new menu each day.
 <a href="https://github.com/Skapud/topjava_boot_graduation">
   <img src="https://cdn.worldvectorlogo.com/logos/github-icon.svg" width="50" height="50">
 </a>
+
+________________
+## DB
+
+<details>
+<summary><b>Schema</b></summary>
+<img src="images/schema.png">
+
+</details>
+
 
 ## Get started
 

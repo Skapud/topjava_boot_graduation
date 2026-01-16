@@ -6,6 +6,7 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import ru.javaops.topjava.user.model.User;
 import ru.javaops.topjava.user.repository.UserRepository;
+import ru.javaops.topjava.user.service.UserService;
 
 import static org.slf4j.LoggerFactory.getLogger;
 
@@ -14,6 +15,9 @@ public abstract class AbstractUserController {
 
     @Autowired
     protected UserRepository repository;
+
+    @Autowired
+    protected UserService service;
 
     @Autowired
     private UniqueMailValidator emailValidator;
@@ -30,6 +34,6 @@ public abstract class AbstractUserController {
 
     public void delete(int id) {
         log.info("delete {}", id);
-        repository.deleteExisted(id);
+        service.deleteExisted(id);
     }
 }

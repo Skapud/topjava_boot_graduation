@@ -17,7 +17,7 @@ import org.springframework.security.web.SecurityFilterChain;
 import ru.javaops.topjava.app.AuthUser;
 import ru.javaops.topjava.user.model.Role;
 import ru.javaops.topjava.user.model.User;
-import ru.javaops.topjava.user.repository.UserRepository;
+import ru.javaops.topjava.user.service.UserService;
 
 import java.util.Optional;
 
@@ -30,7 +30,7 @@ import static org.springframework.security.config.Customizer.withDefaults;
 public class SecurityConfig {
     public static final PasswordEncoder PASSWORD_ENCODER = PasswordEncoderFactories.createDelegatingPasswordEncoder();
 
-    private final UserRepository userRepository;
+    private final UserService userService;
 
     @Bean
     PasswordEncoder passwordEncoder() {
@@ -41,7 +41,7 @@ public class SecurityConfig {
     UserDetailsService userDetailsService() {
         return email -> {
             log.debug("Authenticating '{}'", email);
-            Optional<User> optionalUser = userRepository.findByEmailIgnoreCase(email);
+            Optional<User> optionalUser = userService.findByEmailIgnoreCase(email);
             return new AuthUser(optionalUser.orElseThrow(
                     () -> new UsernameNotFoundException("User '" + email + "' was not found")));
         };
