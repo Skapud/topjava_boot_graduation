@@ -1,12 +1,12 @@
-package ru.javaops.topjava.user.service;
+package ru.javaops.topjava.restaurant.service;
 
 import lombok.AllArgsConstructor;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.javaops.topjava.user.model.Dish;
-import ru.javaops.topjava.user.repository.DishRepository;
-import ru.javaops.topjava.user.repository.RestaurantRepository;
+import ru.javaops.topjava.restaurant.model.Dish;
+import ru.javaops.topjava.restaurant.repository.DishRepository;
+import ru.javaops.topjava.restaurant.repository.RestaurantRepository;
 
 @Service
 @AllArgsConstructor

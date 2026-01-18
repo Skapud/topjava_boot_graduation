@@ -1,4 +1,4 @@
-package ru.javaops.topjava.user.web;
+package ru.javaops.topjava.restaurant.web;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ru.javaops.topjava.app.AuthUser;
-import ru.javaops.topjava.user.service.RestaurantService;
-import ru.javaops.topjava.user.to.RestaurantTo;
-import ru.javaops.topjava.user.util.RestaurantUtil;
+import ru.javaops.topjava.restaurant.service.RestaurantService;
+import ru.javaops.topjava.restaurant.to.RestaurantTo;
+import ru.javaops.topjava.restaurant.util.RestaurantUtil;
 
 import java.time.LocalDate;
 import java.util.List;

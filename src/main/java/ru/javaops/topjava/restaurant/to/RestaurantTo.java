@@ -1,4 +1,4 @@
-package ru.javaops.topjava.user.to;
+package ru.javaops.topjava.restaurant.to;
 
 import lombok.EqualsAndHashCode;
 import lombok.Value;

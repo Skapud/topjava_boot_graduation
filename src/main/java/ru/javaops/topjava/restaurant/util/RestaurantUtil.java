@@ -1,7 +1,7 @@
-package ru.javaops.topjava.user.util;
+package ru.javaops.topjava.restaurant.util;
 
-import ru.javaops.topjava.user.model.Restaurant;
-import ru.javaops.topjava.user.to.RestaurantTo;
+import ru.javaops.topjava.restaurant.model.Restaurant;
+import ru.javaops.topjava.restaurant.to.RestaurantTo;
 
 import java.util.Collection;
 import java.util.List;

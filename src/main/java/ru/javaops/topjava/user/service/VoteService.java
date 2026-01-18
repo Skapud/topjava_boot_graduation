@@ -4,10 +4,10 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.javaops.topjava.common.error.DataConflictException;
-import ru.javaops.topjava.user.model.Restaurant;
+import ru.javaops.topjava.restaurant.model.Restaurant;
 import ru.javaops.topjava.user.model.User;
 import ru.javaops.topjava.user.model.Vote;
-import ru.javaops.topjava.user.repository.RestaurantRepository;
+import ru.javaops.topjava.restaurant.repository.RestaurantRepository;
 import ru.javaops.topjava.user.repository.UserRepository;
 import ru.javaops.topjava.user.repository.VoteRepository;
 

@@ -1,4 +1,4 @@
-package ru.javaops.topjava.user.model;
+package ru.javaops.topjava.restaurant.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -9,6 +9,7 @@ import lombok.Setter;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 import ru.javaops.topjava.common.model.NamedEntity;
+import ru.javaops.topjava.user.model.Vote;
 
 import java.util.List;
 

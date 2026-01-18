@@ -1,7 +1,7 @@
 package ru.javaops.topjava.user;
 
 import ru.javaops.topjava.MatcherFactory;
-import ru.javaops.topjava.user.model.Dish;
+import ru.javaops.topjava.restaurant.model.Dish;
 
 import java.time.LocalDate;
 import java.util.Comparator;

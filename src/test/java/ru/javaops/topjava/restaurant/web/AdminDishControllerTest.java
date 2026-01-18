@@ -1,4 +1,4 @@
-package ru.javaops.topjava.user.web;
+package ru.javaops.topjava.restaurant.web;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,8 +11,8 @@ import org.springframework.transaction.annotation.Transactional;
 import ru.javaops.topjava.AbstractControllerTest;
 import ru.javaops.topjava.common.util.JsonUtil;
 import ru.javaops.topjava.user.DishTestData;
-import ru.javaops.topjava.user.model.Dish;
-import ru.javaops.topjava.user.repository.DishRepository;
+import ru.javaops.topjava.restaurant.model.Dish;
+import ru.javaops.topjava.restaurant.repository.DishRepository;
 
 import java.time.LocalDate;
 
@@ -24,7 +24,7 @@ import static ru.javaops.topjava.user.DishTestData.*;
 import static ru.javaops.topjava.user.RestaurantTestData.RESTAURANT1_ID;
 import static ru.javaops.topjava.user.UserTestData.ADMIN_MAIL;
 import static ru.javaops.topjava.user.UserTestData.USER_MAIL;
-import static ru.javaops.topjava.user.web.AdminDishController.REST_URL;
+import static ru.javaops.topjava.restaurant.web.AdminDishController.REST_URL;
 
 public class AdminDishControllerTest extends AbstractControllerTest {
     private static final String REST_URL_SLASH = REST_URL + '/';

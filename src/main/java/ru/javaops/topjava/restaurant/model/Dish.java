@@ -1,4 +1,4 @@
-package ru.javaops.topjava.user.model;
+package ru.javaops.topjava.restaurant.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;

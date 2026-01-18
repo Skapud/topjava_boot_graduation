@@ -1,4 +1,4 @@
-package ru.javaops.topjava.user.web;
+package ru.javaops.topjava.restaurant.web;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,8 +11,8 @@ import org.springframework.transaction.annotation.Transactional;
 import ru.javaops.topjava.AbstractControllerTest;
 import ru.javaops.topjava.common.util.JsonUtil;
 import ru.javaops.topjava.user.RestaurantTestData;
-import ru.javaops.topjava.user.model.Restaurant;
-import ru.javaops.topjava.user.repository.RestaurantRepository;
+import ru.javaops.topjava.restaurant.model.Restaurant;
+import ru.javaops.topjava.restaurant.repository.RestaurantRepository;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -20,7 +20,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static ru.javaops.topjava.user.RestaurantTestData.*;
 import static ru.javaops.topjava.user.UserTestData.ADMIN_MAIL;
 import static ru.javaops.topjava.user.UserTestData.USER_MAIL;
-import static ru.javaops.topjava.user.web.AdminRestaurantController.REST_URL;
+import static ru.javaops.topjava.restaurant.web.AdminRestaurantController.REST_URL;
 
 public class AdminRestaurantControllerTest extends AbstractControllerTest {
     private static final String REST_URL_SLASH = REST_URL + '/';

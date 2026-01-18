@@ -1,4 +1,4 @@
-package ru.javaops.topjava.user.web;
+package ru.javaops.topjava.restaurant.web;
 
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
@@ -10,9 +10,9 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-import ru.javaops.topjava.user.model.Dish;
-import ru.javaops.topjava.user.repository.DishRepository;
-import ru.javaops.topjava.user.service.DishService;
+import ru.javaops.topjava.restaurant.model.Dish;
+import ru.javaops.topjava.restaurant.repository.DishRepository;
+import ru.javaops.topjava.restaurant.service.DishService;
 
 import java.net.URI;
 import java.time.LocalDate;
@@ -22,7 +22,7 @@ import static ru.javaops.topjava.common.validation.ValidationUtil.assureIdConsis
 import static ru.javaops.topjava.common.validation.ValidationUtil.checkIsNew;
 
 @RestController
-@RequestMapping(value = ru.javaops.topjava.user.web.AdminDishController.REST_URL, produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = AdminDishController.REST_URL, produces = MediaType.APPLICATION_JSON_VALUE)
 @Slf4j
 @AllArgsConstructor
 public class AdminDishController {

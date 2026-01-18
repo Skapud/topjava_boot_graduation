@@ -17,16 +17,16 @@ public class VoteAdminTo extends BaseTo {
 
     Integer userId;
 
-    String name;
+    String userName;
 
-    String email;
+    String userEmail;
 
-    public VoteAdminTo(Integer id, LocalDate voteDate, LocalTime voteTime, Integer userId, String name, String email) {
+    public VoteAdminTo(Integer id, LocalDate voteDate, LocalTime voteTime, Integer userId, String userName, String userEmail) {
         super(id);
         this.voteDate = voteDate;
         this.voteTime = voteTime;
         this.userId = userId;
-        this.name = name;
-        this.email = email;
+        this.userName = userName;
+        this.userEmail = userEmail;
     }
 }

@@ -1,8 +1,8 @@
 package ru.javaops.topjava.user;
 
 import ru.javaops.topjava.MatcherFactory;
-import ru.javaops.topjava.user.model.Restaurant;
-import ru.javaops.topjava.user.to.RestaurantTo;
+import ru.javaops.topjava.restaurant.model.Restaurant;
+import ru.javaops.topjava.restaurant.to.RestaurantTo;
 
 import java.util.List;
 

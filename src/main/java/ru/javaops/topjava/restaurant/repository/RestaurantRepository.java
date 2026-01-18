@@ -1,11 +1,11 @@
-package ru.javaops.topjava.user.repository;
+package ru.javaops.topjava.restaurant.repository;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 import ru.javaops.topjava.common.BaseRepository;
 import ru.javaops.topjava.common.error.NotFoundException;
-import ru.javaops.topjava.user.model.Restaurant;
+import ru.javaops.topjava.restaurant.model.Restaurant;
 
 import java.time.LocalDate;
 import java.util.List;

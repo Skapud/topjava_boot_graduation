@@ -1,4 +1,4 @@
-package ru.javaops.topjava.user.web;
+package ru.javaops.topjava.restaurant.web;
 
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
@@ -8,9 +8,9 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-import ru.javaops.topjava.user.model.Restaurant;
-import ru.javaops.topjava.user.repository.RestaurantRepository;
-import ru.javaops.topjava.user.service.RestaurantService;
+import ru.javaops.topjava.restaurant.model.Restaurant;
+import ru.javaops.topjava.restaurant.repository.RestaurantRepository;
+import ru.javaops.topjava.restaurant.service.RestaurantService;
 
 import java.net.URI;
 import java.util.List;
@@ -19,7 +19,7 @@ import static ru.javaops.topjava.common.validation.ValidationUtil.assureIdConsis
 import static ru.javaops.topjava.common.validation.ValidationUtil.checkIsNew;
 
 @RestController
-@RequestMapping(value = ru.javaops.topjava.user.web.AdminRestaurantController.REST_URL, produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = AdminRestaurantController.REST_URL, produces = MediaType.APPLICATION_JSON_VALUE)
 @Slf4j
 @AllArgsConstructor
 public class AdminRestaurantController {
@@ -32,7 +32,7 @@ public class AdminRestaurantController {
     @GetMapping
     public List<Restaurant> getAll() {
         log.info("getAll");
-        return repository.findAll();
+        return service.getAll();
     }
 
     @GetMapping("/{id}")

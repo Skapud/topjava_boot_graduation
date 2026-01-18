@@ -9,6 +9,7 @@ import lombok.Setter;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 import ru.javaops.topjava.common.model.BaseEntity;
+import ru.javaops.topjava.restaurant.model.Restaurant;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
