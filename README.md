@@ -18,7 +18,7 @@ with a business rule that prevents changing votes after 11:00 AM.
 -------------------------------------------------------------
 
 * 2 types of users: admin and regular users
-* Admin can input a restaurant and it's lunch menu of the day (2-5 items usually, just a dish name and price)
+* Admin can input a restaurant and it's lunch menu of the day (2-5 items usually, just a menuItem name and price)
 * Menu changes each day (admins do the updates)
 * Users can vote for a restaurant they want to have lunch at today
 * Only one vote counted per user

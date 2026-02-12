@@ -16,7 +16,7 @@ spring:
         jdbc.batch_size: 20
   datasource:
     # ImMemory
-    url: jdbc:h2:mem:topjava_boot_graduation
+    url: jdbc:h2:mem:restaurant_voting
     #    tcp: jdbc:h2:tcp://localhost:9092/mem:topjava
     # Absolute path
     #    url: jdbc:h2:C:/projects/bootjava/db/topjava
@@ -42,7 +42,7 @@ spring:
 logging:
   level:
     root: WARN
-    ru.javaops.topjava: DEBUG
+    com.github.skapud: DEBUG
     org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver: DEBUG
 
 springdoc.swagger-ui.path: /

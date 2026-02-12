@@ -1,6 +1,6 @@
 DELETE FROM user_role;
 DELETE FROM vote;
-DELETE FROM dish;
+DELETE FROM menu_item;
 DELETE FROM users;
 DELETE FROM restaurant;
 
@@ -21,7 +21,7 @@ VALUES ('Ukrainochka'),
        ('New Era'),
        ('Kapadokya');
 
-INSERT INTO DISH (name, price, dish_date, restaurant_id)
+INSERT INTO MENU_ITEM (name, price, item_date, restaurant_id)
 VALUES ('Varenyky with Cherry', '950', DATEADD('day', -1, CURRENT_DATE), 10),
        ('Borscht', '1400', CURRENT_DATE, 10),
        ('Meat Dumplings', '1550', CURRENT_DATE, 10),
